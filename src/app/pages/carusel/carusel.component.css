@@ -1,0 +1,87 @@
+.carousel {
+  margin: 0px 0px 10px 0px;
+}
+.w-100 {
+  max-height: 500px;
+  width: 100% !important;
+  margin: auto;
+  display: block;
+  -o-object-fit: cover;
+  object-fit: cover;
+  opacity: 0.77;
+}
+img {
+  height: 400px !important;
+}
+.carousel-item h1 {
+  font-size: 40px;
+  color: green !important;
+}
+.carousel-item p {
+  font-size: 26px;
+  color: red !important;
+}
+.carousel-item {
+  transition: 1.4s;
+}
+
+
+
+/* ღილაკები და ტექსტი Bootstrap-ის data-bs-theme-ის მიხედვით */
+.carousel-caption h1,
+.carousel-caption p,
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  color: var(--bs-body-color); /* Bootstrap 5.3 ფერების მხარდაჭერა */
+}
+
+/* .carousel-indicators button {
+  background-color: rgba(var(--bs-body-color-rgb), 0.5);
+} */
+
+/* კარუსელის ღილაკების ფონზე უკეთესი კონტროლი */
+.carousel-control-prev,
+.carousel-control-next {
+  background-color: rgba(var(--bs-body-color-rgb), 0.3);
+  /* border-radius: 50%; */
+  width: 40px;
+  /* height: 40px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  background-color: rgba(var(--bs-body-color-rgb), 0.7);
+}
+
+
+
+/* Default ინდიკატორის ღილაკები (ღია თემისთვის) */
+.carousel-indicators button {
+  background-color: #2199E8 !important; /* მუქი ფერი ღია თემაზე */
+  opacity: 0.5;
+  border: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  transition: background 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* აქტიური ღილაკი */
+.carousel-indicators .active {
+  background-color: blue !important;
+  opacity: 1;
+}
+
+/* 🌙 ბნელი თემის სტილები */
+[data-bs-theme="dark"] .carousel-indicators button {
+  background-color: rgba(0,0,240,0.8) !important; /* მუქი ფერი ღია თემაზე */
+  opacity: 0.5;
+}
+
+[data-bs-theme="dark"] .carousel-indicators .active {
+  background-color: blue !important;
+  opacity: 1;
+}
