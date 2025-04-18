@@ -2,17 +2,8 @@
   "rewrites": [
     {
       "source": "/product/:id",
-      "destination": "/product/:id"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/product/:id",
-      "dest": "/product/:id",
-      "methods": ["GET"],
-      "headers": {
-        "x-prerender": "false"
-      }
+      "destination": "/product/[id]"
     }
   ]
 }
+
