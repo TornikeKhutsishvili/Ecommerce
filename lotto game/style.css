@@ -1,0 +1,98 @@
+.btn_number_main_div{
+    display: flex;
+    justify-content: center;
+}
+.btn_number_main1_div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 810px;
+}
+.btn_number{
+    width: 75px;
+    height: 75px;
+    margin: 5px;
+
+    border-radius: 80%;
+    border: 10px solid red;
+    background-color: #EDBC5F;
+    color: red;
+    font-size: 30px;
+    font-weight: 800;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn_number:hover{
+    cursor: pointer;
+}
+.odd{
+    background-color: #BD6F32;
+    color: rgb(106, 2, 103);
+    border: 10px solid rgb(106, 2, 103);
+}
+.btn_h1{
+    margin-top: 20px;
+    text-align: center;
+}
+.btn_start{
+    margin: 10px;
+    color: black;
+    background-color: aqua;
+    border: 11px solid aqua;
+    cursor: pointer;
+}
+.btn_start:hover{
+    background-color: rgb(163, 255, 255);
+    border: 11px solid rgb(163, 255, 255);
+}
+.btn_restart{
+    color: white;
+    background-color: darkblue;
+    border: 1px solid darkblue;
+    padding: 11px 6.7px;
+    cursor: pointer;
+}
+.btn_restart:hover{
+    background-color: rgb(106, 106, 255);
+    border: 1px solid rgb(106, 106, 255);
+}
+.win_h1,
+.win_h3{
+    color: green;
+}
+.lose_h1{
+    color: red;
+}
+.win_number_btn1,
+.win_number_btn2,
+.win_number_btn3,
+.win_number_btn4,
+.win_number_btn5,
+.win_number_btn6{
+    display: none;
+
+    width: 75px;
+    height: 75px;
+
+    border-radius: 80%;
+    border: 10px solid green;
+
+    font-size: 30px;
+    font-weight: 800;
+
+    color: green;
+}
+.choiseText{
+    display: none;
+    margin-top: 10px;
+}
+.choiseNumb{
+    display: inline-block;
+    margin-top: -20px;
+}
+.Win{
+    display: none;
+}
