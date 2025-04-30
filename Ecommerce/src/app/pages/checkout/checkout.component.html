@@ -1,0 +1,150 @@
+<div class="container mt-4">
+  <h2>Checkout 🛍️</h2>
+
+  <div *ngIf="cartItems.length > 0; else emptyCart">
+    <div class="row">
+      <div class="col-md-4 mb-3" *ngFor="let item of cartItems">
+        <div class="card">
+          <img [src]="item.image" class="card-img-top" alt="{{ item.title }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ item.title }}</h5>
+            <p class="card-text"><strong>Price:</strong> ${{ item.price }}</p>
+            <p><strong>Quantity:</strong> {{ item.quantity }}</p>
+            <p><strong>Total for this item:</strong> ${{ item.price * item.quantity }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <form (ngSubmit)="completeCheckout()" #paypalForm="ngForm" class="checkout-form">
+      <!-- Full Name -->
+      <div class="form-group">
+        <label for="name" class="form-label">Full Name</label>
+        <input type="text" id="name" class="form-control" [(ngModel)]="user.name" name="name"
+              required #FullNameInput="ngModel" />
+            <!-- Error message if required field is not filled -->
+            <div *ngIf="FullNameInput.invalid && FullNameInput.touched" class="text-danger">
+              Full Name is required.
+            </div>
+      </div>
+
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" id="email" class="form-control" [(ngModel)]="user.email" name="email"
+              required #EmailInput="ngModel"
+              pattern="^[^@]+@[^@]+\.[^@]+$" />
+          <!-- Error message if required field is not filled or pattern doesn't match -->
+          <div *ngIf="EmailInput.invalid && EmailInput.touched" class="text-danger">
+            <div *ngIf="EmailInput.errors?.['required']">Email is required.</div>
+            <div *ngIf="EmailInput.errors?.['pattern']">Please enter a valid email with "&#64;"</div>
+          </div>
+      </div>
+
+      <!-- Address -->
+      <div class="form-group">
+        <label for="address" class="form-label">Shipping Address</label>
+        <input type="text" id="address" class="form-control" [(ngModel)]="user.address" name="address"
+              required #ShippingAddressInput="ngModel" />
+            <!-- Error message if required field is not filled -->
+            <div *ngIf="ShippingAddressInput.invalid && ShippingAddressInput.touched" class="text-danger">
+              Shipping Address is required.
+            </div>
+      </div>
+
+      <!-- Payment Method -->
+      <div class="form-group">
+        <label for="paymentMethod" class="form-label">Payment Method</label>
+        <select id="paymentMethod"
+                [(ngModel)]="paymentMethod"
+                class="form-control form-select"
+                [(ngModel)]="user.paymentMethod"
+                name="paymentMethod"
+                (change)="onPaymentMethodChange()"
+        >
+          <option value="Cash_on_Delivery">Cash on Delivery</option>
+          <option value="PayPal">PayPal</option>
+          <option value="Credit_Card">Credit Card</option>
+        </select>
+
+        <!-- Cash on Delivery Option (no additional fields) -->
+        <div *ngIf="paymentMethod === 'Cash_on_Delivery'" class="payment-option">
+          <p>You have selected Cash on Delivery. No additional information required.</p>
+        </div>
+
+        <!-- Credit Card Payment Fields -->
+        <div *ngIf="paymentMethod === 'Credit_Card'" class="mb-3">
+          <div class="mb-3">
+            <label for="cardNumber" class="form-label mt-3">Card Number</label>
+            <input type="text" id="cardNumber" name="cardNumber"
+                  [(ngModel)]="cardNumber" placeholder="Enter card number"
+                  class="form-control" maxlength="19" (input)="formatCardNumber()"
+                  required
+                  #cartNumberInput="ngModel">
+              <!-- Error message if required field is not filled -->
+              <div *ngIf="cartNumberInput.invalid && cartNumberInput.touched" class="text-danger">
+                Card Number is required.
+              </div>
+
+            <label for="expiryDate" class="form-label mt-3">Expiry Date</label>
+            <input type="month" id="expiryDate" name="expiryDate"
+                  [(ngModel)]="expiryDate" class="form-control"
+                  required
+                  #expiryDateInput="ngModel">
+              <!-- Error message if required field is not filled -->
+              <div *ngIf="expiryDateInput.invalid && expiryDateInput.touched" class="text-danger">
+                Expiry Dateis required.
+              </div>
+
+            <label for="cvv" class="form-label mt-3">CVV (3-digit code)</label>
+            <input type="text" id="cvv" name="cvv"
+                  [(ngModel)]="cvv" placeholder="Enter CVV" class="form-control"
+                  required
+                  #codeCVVInput="ngModel">
+              <!-- Error message if required field is not filled -->
+              <div *ngIf="codeCVVInput.invalid && codeCVVInput.touched" class="text-danger">
+                CVV (3-digit code) is required.
+              </div>
+          </div>
+        </div>
+
+        <!-- PayPal Payment Fields -->
+        <div *ngIf="paymentMethod === 'PayPal'">
+            <div class="mb-3">
+            <label for="paypalEmail" class="form-label mt-3">PayPal Email</label>
+            <input type="email" id="paypalEmail" name="paypalEmail"
+                  [(ngModel)]="paypalEmail" placeholder="Enter PayPal email"
+                  class="form-control"
+                  required
+                  #paypalEmailInput="ngModel">
+              <!-- Error message if required field is not filled -->
+              <div *ngIf="paypalEmailInput.invalid && paypalEmailInput.touched" class="text-danger">
+                PayPal email is required.
+              </div>
+          </div>
+        </div>
+
+      </div>
+    </form>
+
+
+
+    <div class="text-center mt-4 back-cart">
+      <h4>Total: ${{ totalPrice }}</h4>
+      <a [routerLink]="['/cart']" class="btn btn-secondary">Back to cart</a>
+      <button type="button" class="btn btn-primary"
+              [disabled]="paypalForm.invalid"
+              (click)="completeCheckout()"
+              >Complete Checkout
+      </button>
+    </div>
+  </div>
+
+  <ng-template #emptyCart>
+    <p>Your cart is empty. Add some products!</p>
+    <div class="text-center mt-4">
+      <a [routerLink]="['/']" class="btn btn-secondary">Back to Home</a>
+    </div>
+  </ng-template>
+</div>

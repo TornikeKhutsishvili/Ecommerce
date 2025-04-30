@@ -1,0 +1,34 @@
+<!-- navbar -->
+<nav class="navbar navbar-expand-lg" [ngClass]="isDarkMode ? 'navbar-dark' : 'navbar-light'">
+  <div class="container-fluid">
+    <a [routerLink]="['/']" class="navbar-brand">E-commerce</a>
+
+    <!-- Burger Button -->
+    <button class="navbar-toggler" type="button" (click)="toggleMenu()" title="button">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar Menu -->
+    <div class="collapse navbar-collapse" id="navbarNav" [ngClass]="{ 'show': isMenuOpen }">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <input type="text" class="form-control" placeholder="Search" (input)="onSearch($event)">
+        </li>
+        <li class="nav-item ms-3">
+          <select class="form-control" (change)="filterByPrice($event, products)" name="select" title="select">
+            <option value="">Filter by price</option>
+            <option value="low">Low to High</option>
+            <option value="high">High to Low</option>
+          </select>
+        </li>
+        <li class="nav-item ms-3">
+          <button type="button" class="btn btn-outline-light"
+            (click)="toggleTheme()"
+            [style.backgroundColor]="isDarkMode ? islight : isblack">
+            <span [ngClass]="{'rotate-on-hover': true}">{{ isDarkMode ? sun : moon }}</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

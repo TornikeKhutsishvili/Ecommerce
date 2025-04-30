@@ -1,0 +1,66 @@
+/* navbar.component.css */
+.navbar {
+  background-color: #f8f9fa;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar .navbar-brand {
+  font-weight: bold;
+}
+
+.navbar .form-control {
+  width: 200px;
+}
+
+
+/* Light mode */
+.navbar-light {
+  background-color: #f8f9fa !important;
+  color: #212529 !important;
+}
+
+/* Dark mode */
+.navbar-dark {
+  background-color: #343a40 !important;
+  color: #f8f9fa !important;
+}
+
+/* transition */
+.rotate-on-hover {
+  display: inline-block;
+  transition: transform 0.5s ease-in-out;  /* სატრანზიტო ეფექტი */
+}
+
+.rotate-on-hover:hover {
+  transform: rotate(360deg);  /* 360 გრადუსიანი დატრიალება */
+}
+
+
+/* Responsiveness */
+@media (max-width: 992.1px) {
+  .navbar .form-control {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .ms-3{
+    margin: 0px !important;
+  }
+
+  .navbar .navbar-nav {
+    flex-direction: column;
+  }
+
+  .navbar .navbar-nav .btn{
+    margin-top: 10px !important;
+    width: 100%;
+  }
+
+  .navbar .navbar-nav{
+    margin-top: 10px !important;
+  }
+
+  .navbar .nav-item {
+    margin-bottom: 10px;
+  }
+}
