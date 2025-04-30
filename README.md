@@ -1,59 +1,64 @@
-# Ecommerce
+🛒 E-commerce Product Showcase | Angular 19 Project
+This is a fully responsive and modern E-commerce Product Showcase built with Angular 19, designed for a seamless user experience on both desktop and mobile. The application is component-based and developed using standalone components without NgModules.
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.3.
+🌟 Features
+⚡ Product Listing — Displays a list of products with images, price, and title.
 
-## Development server
+🔍 Search Functionality — Users can filter products by name using the real-time search input.
 
-To start a local development server, run:
+💰 Price Filter — Filter products within a specific price range.
 
-```bash
-ng serve
-```
+🖼️ Bootstrap Carousel — Beautiful image carousel highlighting selected products.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+🌙 Theme Toggle — Switch between light and dark mode with a smooth transition.
 
-## Code scaffolding
+🧩 Standalone Components — Fully modular architecture using Angular's standalone components.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+📱 Responsive Design — Works flawlessly across all screen sizes using Bootstrap and CSS media queries.
 
-```bash
-ng generate component component-name
-```
+🛠️ Technologies Used
+Angular 19 (with standalone components)
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+TypeScript
 
-```bash
-ng generate --help
-```
+HTML5 / CSS3
 
-## Building
+Bootstrap 5
 
-To build the project run:
+REST API Integration
 
-```bash
-ng build
-```
+RxJS
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+1. Responsive Design Principles
 
-## Running unit tests
+🚀 How to Run the Project
+Clone the repository:
+git clone https://github.com/TornikeKhutsishvili/Ecommerce
+cd Ecommerce
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+2. Install dependencies:
+npm install
 
-```bash
-ng test
-```
+3. Run the development server:
+Navigate to http://localhost:4200/ in your browser.
 
-## Running end-to-end tests
+//**
+📁 Project Structure Highlights
+src/app/components/ — All standalone components (e.g., product-card, search-bar).
 
-For end-to-end (e2e) testing, run:
+src/app/services/ — API services for data handling.
 
-```bash
-ng e2e
-```
+src/assets/ — Contains static assets and product images.
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+No use of NgModule — Fully embraces the latest Angular architecture.
 
-## Additional Resources
+📌 Notes
+The application uses mock product data via an external API.
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+SEO best practices, performance optimization, and mobile-first design principles were followed.
+
+Built with clean, maintainable, and scalable code structure.
+
+👤 Author
+Tornike Khutsishvili
+Frontend Developer passionate about creating modern and user-centric web applications.
