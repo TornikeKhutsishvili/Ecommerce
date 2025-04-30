@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+/* Dark mode styles */
+
+/* Default light theme */
+body.light-theme {
+  background-color: #f8f9fa; /* ღია ფერი */
+  color: #212529;
+}
+
+/* Dark theme */
+body.dark-theme {
+  background-color: #343a40; /* მუქი ფერი */
+  color: #f8f9fa;
+}
+
+/* Navbar Styling */
+.navbar {
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar-light {
+  background-color: #f8f9fa !important;
+  color: #212529;
+}
+
+.navbar-dark {
+  background-color: #343a40 !important;
+  color: #f8f9fa;
+}
+
+/* .selector-for-some-widget {
+  box-sizing: content-box;
+} */

@@ -1,0 +1,33 @@
+<app-carusel [products]="caruselProducts()"></app-carusel>
+
+<div class="container mt-4">
+  <h2 class="text-center">Products</h2>
+
+  <pagination-controls (pageChange)="page = $event" class="text-center page"></pagination-controls>
+
+  <div class="row justify-content-around">
+    <div class="col-lg-4 col-md-5 col-12 mb-3"
+        *ngFor="let product of filteredProducts | paginate: { itemsPerPage: itemsPerPage, currentPage: page }">
+      <div class="card">
+        <img [src]="product.image" class="card-img-top" alt="{{ product.title }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ product.title }}</h5>
+          <p class="card-text"><strong>Price:</strong> ${{ product.price }}</p>
+          <a [routerLink]="['./product', product.id]" class="btn btn-primary">View Details</a>
+          <button type="button" class="btn btn-success mt-2" (click)="addToCart(product)">🛒 Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #noProducts>
+    <p>პროდუქტები ვერ მოიძებნა.</p>
+  </ng-template>
+
+  <div class="cart text-center mt-4 mb-4">
+    <span>Items in Cart: {{ cartItemCount }}</span>
+    <a [routerLink]="['/cart']" class="btn btn-info">View Cart</a>
+  </div>
+
+  <pagination-controls (pageChange)="page = $event" class="text-center page"></pagination-controls>
+</div>
